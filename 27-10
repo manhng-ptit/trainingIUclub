@@ -1,0 +1,66 @@
+#Bai 1
+n = int(input())
+a = list(map(float, input().split()))
+
+nums = a.copy()
+nums.remove(min(nums))
+nums.remove(max(nums))
+
+s = sum(nums) / len(nums)
+if s * 10 % 10 == 0:
+    print(f"{s:.1f}")
+else:
+    s = f"{s:.2f}"
+    if s.endswith("0"):   
+        s = s.rstrip("0") 
+    if s.endswith("."):   
+        s += "0"
+    print(s)
+#Bai 2
+n = int(input())
+nums = []
+while len(nums) < n:
+    nums += list(map(int, input().split()))
+max_value = max(nums)
+missing = [i for i in range(1, max_value) if i not in nums]
+if missing:
+    for x in missing:
+        print(x)
+else:
+    print("Excellent!")
+#Bai 3
+while True:
+    try:
+        a1,a2,a3,a4 = map(int, input().split())
+    except EOFError:
+        break
+    if a1==a2==a3==a4==0:
+        break
+    else:
+        steps=0
+        while not (a1==a2==a3==a4):
+                    a1, a2, a3, a4 = abs(a1 - a2), abs(a2 - a3), abs(a3 - a4), abs(a4 - a1)
+                    steps += 1
+print(steps)
+#Bai 4
+t = int(input())  
+for i in range(t):
+    s = input().strip()
+    hople = True
+    for a in s:
+        if a not in ["4", "7"]:
+            hople = False
+            break
+    if hople:
+        print("YES")
+    else:
+        print("NO")
+  #Bai 5
+  t = int(input())
+for i in range(t):
+    n = int(input())
+    a = list(map(int, input().split()))
+    result = 0
+    for x in a:
+        result ^= x
+    print(result)
